@@ -1,0 +1,31 @@
+{
+  "name": "mt-back",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon",
+    "pm2": "pm2 start ./dist/server.js -i 'max' --name api-mt",
+    "stop": "pm2 stop api-mt",
+    "monit": "pm2 monit",
+    "log": "pm2 log",
+    "tsc": "tsc"
+  },
+  "author": "Oswar99",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/cors": "^2.8.12",
+    "@types/express": "^4.17.13"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.17.3",
+    "node": "^17.7.1",
+    "nodemon": "^2.0.15",
+    "pm2": "^5.2.0",
+    "socket.io": "^4.4.1",
+    "ts-node": "^10.7.0",
+    "tsc": "^2.0.4",
+    "typescript": "^4.6.2"
+  }
+}
