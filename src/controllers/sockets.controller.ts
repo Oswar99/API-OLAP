@@ -15,7 +15,7 @@ class SocketsController{
 
     private sendMessage(socket:any){
         socket.on("send_message", (data:any) => {
-            socket.to(socket.room).emit("receive_message", data);
+            socket.broadcast.to("100").emit("receive_message", data);
         });
     };
 

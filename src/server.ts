@@ -11,7 +11,7 @@ const io = require("socket.io")(server, {
 });
 
 io.on("connection", (socket:any) => {
-    console.log("un usuario se ha conectado");
+    console.log(`Se ha conectado 1 usuario ${socket.id}`)
     const t: SocketsController = new SocketsController(socket);
 });
 
