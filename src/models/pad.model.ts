@@ -1,7 +1,7 @@
 import mongoose from "mongoose";
 import { ILocation } from "./location.model";
 
-export interface IPad{
+export interface IPad extends mongoose.Document{
     id: number,
     url: string,
     agency_id: number,
@@ -14,7 +14,7 @@ export interface IPad{
     total_launch_count: number
 };
 
-const PadSchema: mongoose.Schema<IPad> = new mongoose.Schema({
+const PadSchema = new mongoose.Schema({
     id: {type:Number, required:true},
     url: {type:String, required:true},
     agency_id: {type:Number, required:true},
@@ -27,4 +27,4 @@ const PadSchema: mongoose.Schema<IPad> = new mongoose.Schema({
     total_launch_count: {type:Number, required:true}
 });
 
-export const Pad = mongoose.model("Pad", PadSchema);
+export const Pad = mongoose.model<IPad>("Pad", PadSchema);

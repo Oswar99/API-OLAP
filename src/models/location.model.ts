@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 
-export interface ILocation{
+export interface ILocation extends mongoose.Document{
     id: number,
     url: string,
     name: string,
@@ -10,7 +10,7 @@ export interface ILocation{
     total_landing_count: number
 };
 
-const LocationSchema: mongoose.Schema<ILocation> = new mongoose.Schema({
+const LocationSchema = new mongoose.Schema({
     id: {type: Number, required: true},
     url: {type:String, required: false},
     name: {type:String, required: true},
@@ -20,4 +20,4 @@ const LocationSchema: mongoose.Schema<ILocation> = new mongoose.Schema({
     total_landing_count: {type: Number, required: true}
 });
 
-export const Location = mongoose.model("Location", LocationSchema);
+export const Location = mongoose.model<ILocation>("Location", LocationSchema);

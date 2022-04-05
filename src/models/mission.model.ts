@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 
-export interface IMission{
+export interface IMission extends mongoose.Document{
     id: number,
     name: string,
     description: string,
@@ -12,7 +12,7 @@ export interface IMission{
     }
 };
 
-const MissionSchema: mongoose.Schema<IMission> = new mongoose.Schema({
+const MissionSchema = new mongoose.Schema({
     id: {type: Number, required: true},
     name: {type:String, required: true},
     description: {type:String, required: true},
@@ -20,4 +20,4 @@ const MissionSchema: mongoose.Schema<IMission> = new mongoose.Schema({
     orbit: {type: {}, required: true},
 });
 
-export const Mission = mongoose.model("Mission", MissionSchema);
+export const Mission = mongoose.model<IMission>("Mission", MissionSchema);

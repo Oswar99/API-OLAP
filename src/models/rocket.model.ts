@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 
-export interface IRocket {
+export interface IRocket extends mongoose.Document {
     id: number,
     configuration: {
         id: number,
@@ -12,9 +12,9 @@ export interface IRocket {
     }
 };
 
-const RocketSchema: mongoose.Schema<IRocket> = new mongoose.Schema({
+const RocketSchema = new mongoose.Schema({
     id: { type: Number, required: true },
     configuration: { type: {}, required: false },
 });
 
-export const Rocket = mongoose.model("Rocket", RocketSchema);
+export const Rocket = mongoose.model<IRocket>("Rocket", RocketSchema);
